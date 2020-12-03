@@ -1,4 +1,4 @@
-package pl.marcisz.patryk.kalkulator.walut;
+package pl.marcisz.patryk.kalkulator.walut.externalapi;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
