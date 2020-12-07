@@ -41,7 +41,7 @@ public class CalculatorHttpClient {
      }
 
      private Optional<CalculatorResponse> getApiResponse(String currencyFrom, String currencyTo, String date){
-         String requestUrl = "api.exchangeratesapi.io/" + date
+         String requestUrl = "https://api.exchangeratesapi.io/" + date
                  + "?base="+ currencyFrom
                  + "&symbols=" + currencyTo;
 

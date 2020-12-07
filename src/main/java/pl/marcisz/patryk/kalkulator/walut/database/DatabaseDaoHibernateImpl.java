@@ -12,6 +12,6 @@ public class DatabaseDaoHibernateImpl implements DatabaseDao {
 
     @Override
     public void save(Exchange data) {
-        throw new UnsupportedOperationException("not implemented yet");
+//        throw new UnsupportedOperationException("not implemented yet");
     }
 }

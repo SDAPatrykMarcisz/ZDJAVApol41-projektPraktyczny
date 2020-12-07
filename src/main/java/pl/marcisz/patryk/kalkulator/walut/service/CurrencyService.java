@@ -4,6 +4,7 @@ import pl.marcisz.patryk.kalkulator.walut.database.DatabaseDao;
 import pl.marcisz.patryk.kalkulator.walut.database.DatabaseDaoHibernateImpl;
 import pl.marcisz.patryk.kalkulator.walut.externalapi.CalculatorHttpClient;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 
 public class CurrencyService {
@@ -15,9 +16,13 @@ public class CurrencyService {
         this.databaseDao = new DatabaseDaoHibernateImpl();
     }
 
-    public double exchange(String currencyFrom, String currencyTo, LocalDate day) {
+    public BigDecimal exchange(String currencyFrom, String currencyTo, LocalDate day) {
+        return exchange(currencyFrom, currencyTo, day, BigDecimal.ONE);
+    }
+
+    public BigDecimal exchange(String currencyFrom, String currencyTo, LocalDate day, BigDecimal amount) {
         Exchange exchangeInfo = getFromDatabaseOrExternalApi(currencyFrom, currencyTo, day);
-        return exchangeInfo.getExchangeRate();
+        return amount.multiply(BigDecimal.valueOf(exchangeInfo.getExchangeRate()));
     }
 
     private Exchange getFromDatabaseOrExternalApi(String currencyFrom, String currencyTo, LocalDate day) {
