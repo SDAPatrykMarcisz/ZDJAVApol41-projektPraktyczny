@@ -11,6 +11,11 @@ public class CurrencyService {
     private final CalculatorHttpClient calculatorHttpClient;
     private final DatabaseDao databaseDao;
 
+    public CurrencyService(CalculatorHttpClient calculatorHttpClient, DatabaseDao databaseDao){
+        this.calculatorHttpClient = calculatorHttpClient;
+        this.databaseDao = databaseDao;
+    }
+
     public CurrencyService(){
         this.calculatorHttpClient = new CalculatorHttpClient();
         this.databaseDao = new DatabaseDaoHibernateImpl();
