@@ -8,6 +8,17 @@ public class Exchange {
     private double exchangeRate;
     private LocalDate exchangeDate;
 
+    public Exchange(){
+
+    }
+
+    public Exchange(String currencyFrom, String currencyTo, double exchangeRate, LocalDate exchangeDate) {
+        this.currencyFrom = currencyFrom;
+        this.currencyTo = currencyTo;
+        this.exchangeRate = exchangeRate;
+        this.exchangeDate = exchangeDate;
+    }
+
     public String getCurrencyFrom() {
         return currencyFrom;
     }
